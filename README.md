@@ -2,7 +2,7 @@
 # Project Overview 
 This is a simple flask project that was created in the proccess of learning python and flask in particular. It has basic functional of an auction website such as: registration and login of the user, biding system, selling system, user balance, account deletion and some other smaller functions.
 # Configuration instructions 
-
+Before you start using it you need to install and configure MySQL on your machine or just connect it to existing database.
 # Installation instructions 
 This will include, but is not limited to, any packages and dependencies required to make your project function.
 # Operating instructions
