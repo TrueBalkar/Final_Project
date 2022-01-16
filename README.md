@@ -26,11 +26,11 @@ Execute run.py file via console and go to the adress of the server that will be 
                                 my_bids.html
                                 my_office.html
                                 register.html
-                                includes\
-                                        delete_account_modal.html
-                                        items_modals.html
-                                        sell_item_modal.html
-                                        VIP_functions.html
+                                        includes\
+                                                delete_account_modal.html
+                                                items_modals.html
+                                                sell_item_modal.html
+                                                VIP_functions.html
                         documentaion\
                                 authorisation.html
                                 bidding.html
