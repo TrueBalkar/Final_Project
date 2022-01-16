@@ -2,13 +2,16 @@
 # Project Overview 
 This is a simple flask project that was created in the proccess of learning python and flask in particular. It has basic functional of an auction website such as: registration and login of the user, biding system, selling system, user balance, account deletion and some other smaller functions.
 # Configuration instructions 
-Before you start using it you need to install and configure MySQL on your machine or just connect it to existing database. Then in file auction\db.py change connection data in class ConnectToDatabase to yours. After that import sql tables from my_sql_tables in your database. And you are pretty much ready to go.
+Before you start using it you need to install and configure MySQL on your machine or just connect it to existing database. Then in file auction\db.py change connection data in class ConnectToDatabase to yours. After that import sql tables from my_sql_tables directory to your database. And you are pretty much ready to go.
 # Installation instructions 
 Download, configure and be ready to run website.
 # Operating instructions
-Just 
+Execute run.py file via console and go to the adress of the server that will be displayed afterwards (usually it is 192.0.0.1).
 # A list of files included 
-Contingent upon how large your source code is, you may opt to not include the file tree, however you can still explain how to traverse through your code. For example, how is your code modularized? Did you use the MVC (Model, View, Controller) method? Did you use a Router system? Just a few questions to consider when detailing your file structure.
+run.py
+auction\
+        
+        templates\
 # Copyright and licensing information
 In order to let others know what they can and cannot do with your code, it is important to include a software license in your project. If you opt out of using a license then the default copyright laws will apply and you will retain all rights to your source code and no one may reproduce, distribute, or create derivative works from your work. Hence the reason licenses are critical and highly recommended for open source projects.
 # Contact information for the distributor or programmer
