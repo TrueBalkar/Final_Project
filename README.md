@@ -2,11 +2,11 @@
 # Project Overview 
 This is a simple flask project that was created in the proccess of learning python and flask in particular. It has basic functional of an auction website such as: registration and login of the user, biding system, selling system, user balance, account deletion and some other smaller functions.
 # Configuration instructions 
-Before you start using it you need to install and configure MySQL on your machine or just connect it to existing database. Then in file auction\db.py change connection data in class ConnectToDatabase to yours. After that import sql tables from sql_tables in your database. And you are pretty much ready to go.
+Before you start using it you need to install and configure MySQL on your machine or just connect it to existing database. Then in file auction\db.py change connection data in class ConnectToDatabase to yours. After that import sql tables from my_sql_tables in your database. And you are pretty much ready to go.
 # Installation instructions 
-This will include, but is not limited to, any packages and dependencies required to make your project function.
+Download, configure and be ready to run website.
 # Operating instructions
-“What is this? Where does this go?” Now is the time to demystify any assumptions around how to use your project.
+Just 
 # A list of files included 
 Contingent upon how large your source code is, you may opt to not include the file tree, however you can still explain how to traverse through your code. For example, how is your code modularized? Did you use the MVC (Model, View, Controller) method? Did you use a Router system? Just a few questions to consider when detailing your file structure.
 # Copyright and licensing information
