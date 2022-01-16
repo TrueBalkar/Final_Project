@@ -1,8 +1,8 @@
-# Name of project
+# Auction website written using flask
 # Project Overview 
-What is your project all about? Who was it created for? Why is it important to you? When was it created? Where can we find it live or the official documentation? How does one go about using it live or within their own project?
+This is a simple flask project that was created in the proccess of learning python and flask in particular. It has basic functional of an auction website such as: registration and login of the user, biding system, selling system, user balance, account deletion and some other smaller functions.
 # Configuration instructions 
-Computer and Software configurations are recommended to achieve optimum performance based on operating systems such as Windows, iOS, Android, and mobile.
+
 # Installation instructions 
 This will include, but is not limited to, any packages and dependencies required to make your project function.
 # Operating instructions
