@@ -1,0 +1,41 @@
+<div class="modal fade" id="Modal-Sell-Item-{{ item.id }}"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">
+                    Item selling menu
+                </h5>
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color:red">x</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    {{ sell_item_form.hidden_tag() }}
+
+
+                    {{ sell_item_form.price.label() }}
+                    {{ sell_item_form.price(class="form-control", placeholder="Enter starting bid price of the product") }}
+
+                    {{ sell_item_form.date_until_purchase.label() }}
+                    {{ sell_item_form.date_until_purchase(class="form-control", placeholder="Enter description of the product") }}
+
+                    {{ sell_item_form.time_until_purchase.label() }}
+                    {{ sell_item_form.time_until_purchase(class="form-control", placeholder="Enter description of the product") }}
+
+                    <br>
+                    <input id="sell_item" name="sell_item" type="hidden" value="{{ item.id }}">
+                    {{ sell_item_form.submit(class="btn btn-lg btn-block btn-warning") }}
+                    <br>
+                    <button type="button" class="btn btn-outline-secondary btn-block"
+                            data-dismiss="modal">
+                        Cancel
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

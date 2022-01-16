@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+    {% block title %}
+        My Office
+    {% endblock %}
+    {% block nav_my_office %}
+        active
+    {% endblock %}
+    {% block content %}
+        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-dark" style="color:white">
+            {% include 'includes/VIP_functions.html' %}
+            {% include 'includes/delete_account_modal.html' %}
+            <h2 class="text-center">{{ session['username'] }}'s office</h2>
+            <br>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-5">
+                    <h4>Your email: [{{ my_email }}]</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-5">
+                    <h4>Your level of access: {{ privilegies }}</h4>
+                    {% include 'includes/delete_account_modal.html' %}
+                    <h5>VIP functional:</h5>
+                    {% if privilegies == "member" %}
+                        <h5 style="color:red">You do not have access to VIP functional!</h5>
+                    {% elif privilegies == "admin" %}
+                        <br>
+                        <button class="btn btn-outline btn-danger" data-toggle="modal"
+                                data-target="#Modal-Delete-User">
+                                Delete User!
+                        </button>
+                        <br><br>
+                        <button class="btn btn-outline btn-warning" data-toggle="modal"
+                                data-target="#Modal-Delete-Item">
+                                Delete Item!
+                        </button>
+                        <br><br>
+                        <button class="btn btn-outline btn-success" data-toggle="modal"
+                                data-target="#Modal-Update-User-Balance">
+                                Update user balance!
+                        </button>
+                    {% endif %}
+                </div>
+                <div class="col-5 text-right">
+                    <button class="btn btn-outline btn-warning" data-toggle="modal"
+                            data-target="#Modal-Add-Item-{{ session['username'] }}">
+                            Add Item
+                    </button>
+                    <br>
+                    <br>
+                    <button class="btn btn-outline btn-success" data-toggle="modal"
+                            data-target="#Modal-Update-Balance-{{ session['username'] }}">
+                            Update Balance!
+                    </button>
+                    <br>
+                    <br>
+                    <button class="btn btn-outline btn-info" data-toggle="modal"
+                            data-target="#Modal-Delete-Account-{{ session['username'] }}">
+                        Delete Account?</button>
+                </div>
+                <div class="col-1"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-5">
+                    <h4>About yourself:</h4>
+                </div>
+                <div class="col-5 text-right">
+                    <button class="btn btn-outline btn-primary" data-toggle="modal"
+                            data-target="#Modal-User-Story-{{ session['username'] }}">
+                            Change description!
+                    </button>
+                </div>
+                <div class="col-1"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 style="color:grey">{{ story }}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1"></div>
+            </div>
+        </div>
+    {% endblock %}

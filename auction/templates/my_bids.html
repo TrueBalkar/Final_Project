@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+    {% block title %}
+        My Bids
+    {% endblock %}
+
+    {% block nav_my_bids %}
+        active
+    {% endblock %}
+
+    {% block content %}
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-5">
+                <br>
+                <h2>Your Bids</h2>
+                <br>
+                <table class="table table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Last Bid</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in my_bids %}
+                        {% if item.owners != session['username'] and item.time_left != "Expired" and item.time_left != "" %}
+                        {% include 'includes/items_modals.html' %}
+                            <tr>
+                                <td>{{ item.id }}</td>
+                                <td>{{ item.item }}</td>
+                                <td>{{ item.last_bidder }}</td>
+                                <td>{{ item.price }}$</td>
+                                <td>
+                                    <button class="btn btn-outline btn-info" data-toggle="modal"
+                                            data-target="#Modal-MoreInfo-{{ item.id }}">More Info</button>
+                                    <button class="btn btn-outline btn-success" data-toggle="modal"
+                                            data-target="#Modal-Bid-On-Item-{{ item.id }}">Bid!</button>
+                                </td>
+                            </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-5">
+                <br>
+                <h2>Your items</h2>
+                <br>
+                <table class="table table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in items %}
+                        {% if item.owners == session['username'] %}
+                        {% include 'includes/items_modals.html' %}
+                        {% include 'includes/sell_item_modal.html' %}
+                            <tr>
+                                <td>{{ item.id }}</td>
+                                <td>{{ item.item }}</td>
+                                <td>{{ item.price }}$</td>
+                                <td>
+                                    <button class="btn btn-outline btn-info" data-toggle="modal"
+                                            data-target="#Modal-MoreInfo-{{ item.id }}">More Info</button>
+                                    {% if item.time_left == "Expired" %}
+                                        <button class="btn btn-outline btn-success" data-toggle="modal"
+                                                data-target="#Modal-Sell-Item-{{ item.id }}">Sell!</button>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    {% endblock %}

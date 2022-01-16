@@ -1,0 +1,240 @@
+<style>
+    .modal-content {
+        background-color:#212121
+        }
+</style>
+
+<div class="modal fade" id="Modal-User-Story-{{ session['username'] }}"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="Modal-User-Story-Label">
+                    About me
+                </h5>
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color:red">x</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    {{ change_story_form.hidden_tag() }}
+                    <h4 class="text-center">
+                        Tell us about yourself
+                    </h4>
+                    <br>
+                    {{ change_story_form.story.label() }}
+                    {{ change_story_form.story(class="form-control", placeholder="About me:") }}
+
+                    <br>
+
+                    {{ change_story_form.submit(class="btn btn-lg btn-block btn-primary") }}
+                    <button type="button" class="btn btn-outline-secondary btn-block"
+                            data-dismiss="modal">
+                        Cancel
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Modal-Update-Balance-{{ session['username'] }}"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">
+                    Balance updating menu
+                </h5>
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color:red">x</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    {{ update_balance_form.hidden_tag() }}
+                    <h4 class="text-center">
+                        How much money you wish to transfer to your account?
+                    </h4>
+                    <br>
+                    {{ update_balance_form.balance.label() }}
+                    {{ update_balance_form.balance(class="form-control", placeholder="Enter sum of money:") }}
+
+                    <br>
+
+                    {{ update_balance_form.update(class="btn btn-lg btn-block btn-success") }}
+                    <button type="button" class="btn btn-outline-secondary btn-block"
+                            data-dismiss="modal">
+                        Cancel
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Modal-Add-Item-{{ session['username'] }}"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">
+                    Item posting menu
+                </h5>
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color:red">x</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    {{ add_item_form.hidden_tag() }}
+
+                    <h6 class="text-center">
+                        Welcome {{ session['username'] }}! What kind of new item you wish to add to My Auction?
+                    </h6>
+                    <h6 class="text-center" style="color:red">
+                        Please add only the items you really have on your hands!
+                    </h6>
+                    <br>
+
+                    {{ add_item_form.name.label() }}
+                    {{ add_item_form.name(class="form-control", placeholder="Enter name of the product") }}
+
+                    {{ add_item_form.description.label() }}
+                    {{ add_item_form.description(class="form-control", placeholder="Enter description of the product") }}
+
+                    {{ add_item_form.price.label() }}
+                    {{ add_item_form.price(class="form-control", placeholder="Enter starting bid price of the product") }}
+
+                    {{ add_item_form.date_until_purchase.label() }}
+                    {{ add_item_form.date_until_purchase(class="form-control", placeholder="Enter description of the product") }}
+
+                    {{ add_item_form.time_until_purchase.label() }}
+                    {{ add_item_form.time_until_purchase(class="form-control", placeholder="Enter description of the product") }}
+
+                    <br>
+                    {{ add_item_form.submit(class="btn btn-lg btn-block btn-warning") }}
+                    <br>
+                    <button type="button" class="btn btn-outline-secondary btn-block"
+                            data-dismiss="modal">
+                        Cancel
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Modal-Delete-User"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">
+                    Delete User Account
+                </h5>
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color:red">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    {{ admin_rights_delete_user_form.hidden_tag() }}
+
+                    <h5 class="text-center">Enter login of the user you wish to delete!</h5>
+                    <br>
+                    {{ admin_rights_delete_user_form.delete_user.label() }}
+                    {{ admin_rights_delete_user_form.delete_user(class="form-control", placeholder="Enter user login:") }}
+                    <br>
+
+                    {{ admin_rights_delete_user_form.submit_delete_user(class="btn btn-outline-danger btn-block") }}
+                    <button type="button" class="btn btn-outline-secondary btn-block"
+                            data-dismiss="modal">
+                        Cancel
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Modal-Delete-Item"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">
+                    Delete Item
+                </h5>
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color:red">x</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    {{ admin_rights_delete_item_form.hidden_tag() }}
+                    <h5 class="text-center">Enter id of the item you wish to delete!</h5>
+                    <br>
+                    {{ admin_rights_delete_item_form.delete_item.label() }}
+                    {{ admin_rights_delete_item_form.delete_item(class="form-control", placeholder="Enter item id:") }}
+                    <br>
+
+                    {{ admin_rights_delete_item_form.submit_delete_item(class="btn btn-outline-warning btn-block") }}
+                    <button type="button" class="btn btn-outline-secondary btn-block"
+                            data-dismiss="modal">
+                        Cancel
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Modal-Update-User-Balance"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">
+                    Update user balance
+                </h5>
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color:red">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    {{ admin_rights_update_user_balance_form.hidden_tag() }}
+                    <h5 class="text-center">Enter id of the item you wish to delete!</h5>
+                    <br>
+                    {{ admin_rights_update_user_balance_form.update_user_balance.label() }}
+                    {{ admin_rights_update_user_balance_form.update_user_balance(class="form-control", placeholder="Enter user login:") }}
+
+                    {{ admin_rights_update_user_balance_form.update_balance.label() }}
+                    {{ admin_rights_update_user_balance_form.update_balance(class="form-control", placeholder="Enter money:") }}
+                    <br>
+
+                    {{ admin_rights_update_user_balance_form.submit_update_balance_plus(class="btn btn-outline-success btn-block") }}
+                    {{ admin_rights_update_user_balance_form.submit_update_balance_minus(class="btn btn-outline-danger btn-block") }}
+                    <button type="button" class="btn btn-outline-secondary btn-block"
+                            data-dismiss="modal">
+                        Cancel
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

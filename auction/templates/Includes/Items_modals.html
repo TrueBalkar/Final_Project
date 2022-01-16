@@ -1,0 +1,83 @@
+<style>
+    .modal-content {
+        background-color:#212121
+        }
+</style>
+
+
+<div class="modal fade" id="Modal-MoreInfo-{{ item.id }}"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="Modal-More-Info-Label">
+                    {{ item.item }}
+                </h5>
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color:red">x</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5 style="color:grey">Description:</h5>
+                {{ item.descript }}
+                <br><br>
+                {% if item.time_left != "Expired" or item.time_left != "" %}
+                <h5 style="color:grey">Bid until: {{ item.time_left }}</h5>
+                <br>
+                <h5 style="color:grey">Current user with the highest bid: {{ item.last_bidder }}</h5><br>
+                <br><br>
+                {% endif %}
+                <button type="button" class="btn btn-outline-secondary btn-block"
+                        data-dismiss="modal">
+                    Exit
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Modal-Bid-On-Item-{{ item.id }}"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="Modal-Bid-On-Item-Label">
+                    {{ item.item }}
+                </h5>
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color:red">x</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    {{ bid_on_item_form.hidden_tag() }}
+                    <h4>
+                        How much more do you wish to bid on {{ item.item }}?
+                    </h4>
+                    <h4>
+                        Current price: {{ item.price }}$.
+                    </h4>
+                    {% if item.time_left != "Expired" %}
+                    <h4>
+                        Time until auction is over: {{ item.time_left }}
+                    </h4>
+                    {% endif %}
+                    {{ bid_on_item_form.bid.label() }}
+                    {{ bid_on_item_form.bid(class="form-control", placeholder="Your bid") }}
+                    <br>
+                    <input id="bid_item" name="bid_item" type="hidden" value="{{ item.id }}">
+                    <input id="time_left" name="time_left" type="hidden" value="{{ item.time_left }}">
+                    {{ bid_on_item_form.submit(class="btn btn-outline-success btn-block") }}
+                    <button type="button" class="btn btn-outline-secondary btn-block"
+                            data-dismiss="modal">
+                        Cancel
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
