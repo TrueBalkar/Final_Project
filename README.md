@@ -6,7 +6,6 @@ Before you start using it you need to install and configure MySQL on your machin
 # Installation instructions 
 Download, configure and be ready to run website.
 # Operating instructions
-        Some testing
 Execute run.py file via console and go to the adress of the server that will be displayed afterwards (usually it is 192.0.0.1).
 # A list of files included 
         run.py
