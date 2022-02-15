@@ -243,7 +243,11 @@ def add_new_item(item: str, description: str, price: float, bid_date: str, bid_t
     """
     price = math.trunc(price * 100) / 100
     ConnectToDatabase.cursor.execute(f'SELECT MAX(id) FROM auction')
-    max_id = ConnectToDatabase.cursor.fetchall()[0][0] + 1
+    max_id = ConnectToDatabase.cursor.fetchall()[0][0]
+    if max_id is None:
+        max_id = 1
+    else:
+        max_id += 1
     try:
         ConnectToDatabase.cursor.execute(f'INSERT INTO auction (id, item, owners, descript, '
                                          f'price, last_bidder, bid_time) VALUES ({max_id}, '
